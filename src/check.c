@@ -1,10 +1,10 @@
 #include "push_swap.h"
 
 //Comprueba que no estén los números duplicados
-void isdup();
+int isdup(int tmp, char **args, int i);
 
 //Comprueba que los argumentos sean números y no otra cosa
-void isnum(); 
+int isnum(char *num); 
 
 void check_args(int argc, char **argv)
 {
@@ -21,10 +21,10 @@ void check_args(int argc, char **argv)
     }
     while (args[i])
     {
-        if (!isnum) //si no es un número algún argumento
+        if (!isnum(args[i])) //si no es un número algún argumento
             exit(0);
         tmp = ft_atoi(args[i]); //todos son números char, pásamelo a ints
-        if (!isdup) //si algún número está duplicado
+        if (!isdup(tmp, args, i)) //si algún número está duplicado
             exit(0);
         if (tmp < -2147483647 || tmp > 2147483647)
             exit(0);
