@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/04 12:26:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/08 19:45:42 by mhiguera         ###   ########.fr       */
+/*   Created: 2024/02/08 17:48:18 by mhiguera          #+#    #+#             */
+/*   Updated: 2024/02/08 17:53:17 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include <stdio.h>
 
-typedef struct s_lista
+void    ft_error(void)
 {
-    
-    struct s_lista *next;
-} t_lista;
-
-#endif
+    ft_printf("%s", "Hola");
+    exit(1);
+}
