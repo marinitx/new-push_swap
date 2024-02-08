@@ -6,7 +6,7 @@
 #    By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 13:00:17 by mhiguera          #+#    #+#              #
-#    Updated: 2024/02/08 19:33:55 by mhiguera         ###   ########.fr        #
+#    Updated: 2024/02/08 19:51:26 by mhiguera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ SRC = ./src/push_swap.c ./src/check.c ./src/sort.c ./src/moves_a.c
 		
 OBJS = $(SRC:.c=.o)
 C = gcc
-FLAGS = -Wall -Wextra -Werror #-g  -fsanitize=address
+FLAGS = -Wall -Wextra -Werror -g3 -fsanitize=address
 NAME = push_swap
 RM = rm -rf
 

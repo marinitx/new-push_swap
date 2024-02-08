@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/08 19:46:46 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/08 20:14:46 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void fill_stack(int argc, char **argv, t_list **stack_a)
     t_list *new;
     
     
-    i = 0;
+    i = 1;
     if (argc == 2)
         args = ft_split(*argv, ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
@@ -33,12 +33,14 @@ void fill_stack(int argc, char **argv, t_list **stack_a)
         i = 1; //que empiece en 1 para que no cuente como argumento el .a
     }
     // ./push_swap "9 4 7 1"
-    while (args)
+        printf("%s\n", "hola");
+        printf("argc es %d\n", argc);
+    while (args[i])
     {
-        new = ft_lstnew(args[i]);
-        ft_lstadd_back(stack_a, new);
+        printf("%s\n", args[i]);
+        //new = ft_lstnew(args[i]);
+        //ft_lstadd_back(stack_a, new);
         i++;
-        printf("%s", "hola");
         //voy a ir creando los nodos con lstnew y luego añadiendolos al final del stack a con lstaddback
     }
         
@@ -54,11 +56,11 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         exit(0);
-    printf("%s", "he llegado");
     //check_args(argc, argv); //primero comprueba que los argumentos sean números y no estén repetidos
     stack_a = malloc(sizeof(t_list));
     stack_b = malloc(sizeof(t_list));
     stack_a = NULL;
     stack_b = NULL;
+    printf("%s\n", "he llegado");
     fill_stack(argc, argv, stack_a);    
 }
