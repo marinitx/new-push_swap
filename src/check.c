@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/12 16:57:37 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:07:22 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,7 @@
 void check_dup(int num, char **args, int i)
 {
     i++;
-    printf("Esto es num: %d y esto es atoi: %d\n", num, ft_atoi(args[i]));
-    while (args[i])
+    while (args[i] != NULL)
     {
         if (num == ft_atoi(args[i]))
         {
@@ -51,6 +50,7 @@ void check_args(int argc, char **argv)
     int i;
     int tmp;
 
+    i = 0;
     if (argc == 2)
         args = ft_split(*argv, ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
@@ -66,7 +66,8 @@ void check_args(int argc, char **argv)
         tmp = ft_atoi(args[i]); // ahora todos son números char, pásamelo a ints
         if (tmp < -2147483647 || tmp > 2147483647)
             exit(0);
-        check_dup(tmp, args, i); //si algún número está duplicado.
+        if (args[i + 1] != NULL)
+            check_dup(tmp, args, i); //si algún número está duplicado.
         i++;
     }
 }
