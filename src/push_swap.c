@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/08 20:14:46 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:36:04 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include <stdlib.h>
 #include "../libft/libft.h"
 
-void fill_stack(int argc, char **argv, t_list **stack_a)
+void fill_stack(int argc, char **argv, t_stack **stack_a)
 {
     int i;
     char **args;
-    t_list *new;
+    t_stack *new;
     
     
     i = 1;
@@ -37,13 +37,13 @@ void fill_stack(int argc, char **argv, t_list **stack_a)
         printf("argc es %d\n", argc);
     while (args[i])
     {
-        printf("%s\n", args[i]);
-        //new = ft_lstnew(args[i]);
-        //ft_lstadd_back(stack_a, new);
+        printf("argumentos: %s\n", args[i]);
+        new = ft_lstnew2(args[i]);
+        printf("%s\n", new->content);
+        ft_lstadd_back2(stack_a, new);
         i++;
         //voy a ir creando los nodos con lstnew y luego añadiendolos al final del stack a con lstaddback
     }
-        
 }
 
 
@@ -51,16 +51,21 @@ int main(int argc, char **argv)
 {
     char **args;
     int i;
-    t_list **stack_a;
-    t_list **stack_b;
+    t_stack *stack_a;
+    t_stack *stack_b;
+    t_stack *tmp;
 
     if (argc < 2)
         exit(0);
-    //check_args(argc, argv); //primero comprueba que los argumentos sean números y no estén repetidos
-    stack_a = malloc(sizeof(t_list));
-    stack_b = malloc(sizeof(t_list));
+    check_args(argc, argv); //primero comprueba que los argumentos sean números y no estén repetidos
     stack_a = NULL;
     stack_b = NULL;
     printf("%s\n", "he llegado");
-    fill_stack(argc, argv, stack_a);    
+    fill_stack(argc, argv, &stack_a);
+    tmp = stack_a;
+    while (tmp)
+    {
+        printf("%s\n", tmp->content);
+        tmp = tmp->next;
+    }
 }

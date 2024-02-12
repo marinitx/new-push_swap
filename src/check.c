@@ -6,38 +6,42 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/08 19:38:09 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/12 16:57:37 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-
 #include "../inc/push_swap.h"
+#include "../libft/libft.h"
 
 //Comprueba que no estén los números duplicados
-int check_dup(int num, char **args, int i)
+void check_dup(int num, char **args, int i)
 {
-    int i;
-
-    i = 0;
-    while (args)
+    i++;
+    printf("Esto es num: %d y esto es atoi: %d\n", num, ft_atoi(args[i]));
+    while (args[i])
     {
-        if (num == ft_atoi(args[i]));
+        if (num == ft_atoi(args[i]))
+        {
+            printf("error\n");
+            exit(0);
+        }
+        i++;    
     }
 }
 
 //Comprueba que los argumentos sean números y no otra cosa
-int check_num(char *num)
+void check_num(char *num)
 {
     int i;
 
     i = 0;
-    while (num)
+    if (num[i] == '-')
+        i++;
+    while (num[i] != '\0' && num[i] != ' ')
     {
-        if (!(num[i] > '9' & num[i] < '0'))
-               ft_error();
-        else
-            return (0);
+        if (!ft_isdigit(num[i]))
+            exit(0);
+        i++;
     }
 }
 
@@ -48,9 +52,9 @@ void check_args(int argc, char **argv)
     int tmp;
 
     if (argc == 2)
-        args = ft_split(argv, ' '); //los argumentos son strings de cada número divididos por el espacio
+        args = ft_split(*argv, ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
-        ft_error();
+        exit(0);
     else // Hay más de 2 argumentos ".a" "2" "3" "1"
     {
         args = argv; //crear una matriz que combine todos los argumentos
@@ -60,12 +64,9 @@ void check_args(int argc, char **argv)
     {
         check_num(args[i]); //si no es un número algún argumento
         tmp = ft_atoi(args[i]); // ahora todos son números char, pásamelo a ints
-        check_dup(tmp, args, i); //si algún número está duplicado
         if (tmp < -2147483647 || tmp > 2147483647)
-            ft_error();
+            exit(0);
+        check_dup(tmp, args, i); //si algún número está duplicado.
+        i++;
     }
-
-
 }
-*/
-
