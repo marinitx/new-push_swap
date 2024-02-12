@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/12 17:07:57 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/12 18:32:51 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,19 +45,28 @@ void fill_stack(int argc, char **argv, t_stack **stack_a)
         //voy a ir creando los nodos con lstnew y luego añadiendolos al final del stack a con lstaddback
     }
 }
-//El stack está ya ordenado?
+//El stack está ya ordenado? NO FUNCIONAAAAAAAAAAAA
 void check_sorted(t_stack **stack_a)
 {
+    int prev;
     int i;
-    int j;
+    int sorted;
 
-    i = 0;
-    j = 1;
-    while (stack_a[j])
+    prev = 0;
+    i = 1;
+    sorted = 1; // 0 is sorted, 1 is not sorted
+    printf("valor de stack_a[i]: %s\n", (char *)stack_a[prev]);
+    while (stack_a->next)
     {
-        if (stack_a[i] > stack_a[j])
-            printf("error\n");
-        i++;
+        if (stack_a[prev] < stack_a[i])
+        {
+            printf("sorted\n");
+            i++;
+            prev++;
+            sorted = 0;
+        }
+        else
+            sorted = 1;
     }
     //el anterior es menor que el actual?
 }
@@ -83,5 +92,5 @@ int main(int argc, char **argv)
         printf("%s\n", tmp->content);
         tmp = tmp->next;
     }
-    //check_sorted(&stack_a);
+    check_sorted(&stack_a);
 }
