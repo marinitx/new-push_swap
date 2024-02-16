@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+         #
+#    By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/04 13:00:17 by mhiguera          #+#    #+#              #
-#    Updated: 2024/02/12 14:28:03 by mhiguera         ###   ########.fr        #
+#    Updated: 2024/02/16 14:01:20 by mhiguera         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,19 +24,20 @@ LIBFT = -L$(LIBFT_DIR) $(LIBFT_DIR)$(LIBFT_A)
 
 all: $(NAME)
 
+.SILENT: $(OBJS)
+
 $(NAME): $(OBJS)
 	@make bonus -C $(LIBFT_DIR) --silent
 	@gcc $(FLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
 clean:
-	@$(RM) $(OBJS) $(LIBFT_A)
-	@make -C $(LIBFT_DIR) clean --silent
+	@$(RM) $(OBJS) $(LIBFT)
+	@make clean -C $(LIBFT_DIR) --silent
 
 fclean:	clean
-	@$(RM) $(NAME)
-	@make -C $(LIBFT_DIR) fclean --silent
+	@make fclean -C $(LIBFT_DIR) --silent
+	@$(RM) $(NAME) $(OBJS)
 
-re:	fclean
-	@make all
+re:	fclean all
 	
 .PHONY:	all clean fclean re

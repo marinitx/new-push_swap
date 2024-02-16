@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 18:29:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2023/03/19 19:58:37 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:43:52 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		return (NULL);
 	lst_start = new_lst;
 	lst = lst->next;
-	while (lst != '\0')
+	while (lst != NULL)
 	{
 		new_lst->next = ft_lstnew(f(lst->content));
 		if (!new_lst)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/19 18:20:46 by mhiguera          #+#    #+#             */
-/*   Updated: 2023/03/19 19:43:52 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:45:23 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	while (lst != '\0')
+	while (lst != NULL)
 	{
 		f(lst->content);
 		lst = lst->next;

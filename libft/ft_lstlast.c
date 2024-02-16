@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 17:25:18 by mhiguera          #+#    #+#             */
-/*   Updated: 2023/03/19 19:34:55 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/16 12:45:42 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while ((lst != '\0') && (lst->next != '\0'))
+	while ((lst != NULL) && (lst->next != NULL))
 		lst = lst->next;
 	return (lst);
 }

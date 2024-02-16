@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:26:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/12 15:11:02 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:41:55 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_stack	*ft_lstlast2(t_stack *lst);
 void check_args(int argc, char **argv);
 void check_num(char *num);
 void check_dup(int num, char **args, int i);
+//int	ft_lstsize2(t_stack *lst);
 
 #endif

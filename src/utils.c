@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:48:18 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/12 14:30:36 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/16 13:41:42 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,22 @@ t_stack	*ft_lstnew2(void *content)
 
 t_stack	*ft_lstlast2(t_stack *lst)
 {
-	while ((lst != '\0') && (lst->next != '\0'))
+	while ((lst != NULL) && (lst->next != NULL))
 		lst = lst->next;
 	return (lst);
 }
+
+/*
+int	ft_lstsize2(t_stack *lst)
+{
+	int	i;
+
+	i = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
+}
+*/
