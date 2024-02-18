@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/16 13:53:00 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/18 20:04:09 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void fill_stack(int argc, char **argv, t_stack **stack_a)
     t_stack *new;
     
     
-    i = 1;
+    i = 0;
     if (argc == 2)
-        args = ft_split(*argv, ' '); //los argumentos son strings de cada número divididos por el espacio
+        args = ft_split(argv[1], ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
         exit(0);
     else // Hay más de 2 argumentos ".a" "2" "3" "1"
@@ -32,9 +32,6 @@ void fill_stack(int argc, char **argv, t_stack **stack_a)
         args = argv; //crear una matriz que combine todos los argumentos
         i = 1; //que empiece en 1 para que no cuente como argumento el .a
     }
-    // ./push_swap "9 4 7 1"
-        printf("%s\n", "hola");
-        printf("argc es %d\n", argc);
     while (args[i])
     {
         printf("argumentos: %s\n", args[i]);
@@ -50,7 +47,8 @@ void check_sorted(t_stack **stack_a)
 {
     int i;
     int sorted;
-    t_stack *current = *stack_a;
+    t_stack *current;
+    current = *stack_a;
 
     i = 1;
     sorted = 0; // 0 means sorted, 1 means not sorted
@@ -67,7 +65,10 @@ void check_sorted(t_stack **stack_a)
         current = current->next;
     }
     if (sorted == 0)
+    {
         printf("The stack is sorted.\n");
+        exit(0);
+    }
     else
         printf("The stack is not sorted.\n");
 }
@@ -82,7 +83,7 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         exit(0);
-    printf("%s\n", "he llegado");
+    printf("Número de argumentos: %d\n", argc);
     check_args(argc, argv); //primero comprueba que los argumentos sean números y no estén repetidos
     stack_a = NULL;
     stack_b = NULL;
@@ -94,5 +95,7 @@ int main(int argc, char **argv)
         tmp = tmp->next;
     }
     check_sorted(&stack_a); //miro si ya está ordenado de por si
+    printf("ahora a mover\n");
+    sa(stack_a);
     
 }

@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/12 18:07:22 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/18 15:44:25 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,9 @@ void check_args(int argc, char **argv)
     int tmp;
 
     i = 0;
+    printf("el argumento que le paso al split es este: %s\n", argv[1]);
     if (argc == 2)
-        args = ft_split(*argv, ' '); //los argumentos son strings de cada número divididos por el espacio
+        args = ft_split(argv[1], ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
         exit(0);
     else // Hay más de 2 argumentos ".a" "2" "3" "1"
