@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:48:18 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/16 13:41:42 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/24 18:06:21 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ t_stack	*ft_lstlast2(t_stack *lst)
 	while ((lst != NULL) && (lst->next != NULL))
 		lst = lst->next;
 	return (lst);
+}
+
+void print_stack(t_stack *stack)
+{
+    printf("Contenido de la pila:\n");
+    while (stack)
+    {
+        printf("%s\n", stack->content);
+        stack = stack->next;
+    }
 }
 
 /*

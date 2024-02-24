@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/18 20:04:09 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/24 17:49:21 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,5 @@ int main(int argc, char **argv)
     }
     check_sorted(&stack_a); //miro si ya está ordenado de por si
     printf("ahora a mover\n");
-    sa(stack_a);
-    
+    sa(&stack_a);
 }
