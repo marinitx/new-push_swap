@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/25 13:40:07 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:35:07 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 #include <stdlib.h>
 #include "../libft/libft.h"
 
-void which_sort(stack_t **stack_a, stack_t **stack_b)
+void which_sort(t_stack **stack_a, t_stack **stack_b)
 {
-    if (stack_a ) //si tengo 2 números que ya sé que están desordenados
-        sort2;
-    else if (stack_a) // si tengo 3 números
-        sort3;
-    else if (stack_a) //si tengo 4 números
-        sort4;
-    else if (stack_a) //si tengo 5 números
-        sort5;
-    else //para todos los demás
-        radix;
+    if (ft_lstsize2(*stack_a) == 2) //si tengo 2 números que ya sé que están desordenados
+        sort2(stack_a);
+    else if (ft_lstsize2(*stack_a) == 3) // si tengo 3 números
+        sort3(stack_a);
+    else if (ft_lstsize2(*stack_a) == 4) //si tengo 4 números
+        sort4(stack_a, stack_b);
+    else if (ft_lstsize2(*stack_a) == 5) //si tengo 5 números
+        sort5(stack_a, stack_b);
+    //else //para todos los demás
+      //  radix;
 }
 
-void fill_stack(int argc, char **argv, t_stack **stack_a)
+
+void fill_stack(int argc, char **argv, t_stack **stack_a) 
 {
     int i;
     char **args;
     t_stack *new;
-    
     
     i = 0;
     if (argc == 2)
@@ -48,12 +48,9 @@ void fill_stack(int argc, char **argv, t_stack **stack_a)
     }
     while (args[i])
     {
-        printf("argumentos: %s\n", args[i]);
-        new = ft_lstnew2(args[i]);
-        printf("%s\n", new->content);
-        ft_lstadd_back2(stack_a, new);
+        new = ft_lstnew2(atoi(args[i])); // Convertir la cadena a entero y crear un nuevo nodo
+        ft_lstadd_back2(stack_a, new); // Agregar el nuevo nodo al final de la pila
         i++;
-        //voy a ir creando los nodos con lstnew y luego añadiendolos al final del stack a con lstaddback
     }
 }
 //El stack está ya ordenado? el anterior es menor que el actual?
@@ -110,5 +107,5 @@ int main(int argc, char **argv)
     }
     check_sorted(&stack_a); //miro si ya está ordenado de por si
     printf("ahora a mover\n");
-    which_sort(&stack_a, &stack_b)
+    which_sort(&stack_a, &stack_b);
 }

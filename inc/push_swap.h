@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:26:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/25 13:35:33 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:48:30 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ typedef struct s_stack
     struct s_stack *next;
 } t_stack;
 
-t_stack	*ft_lstnew2(void *content);
+t_stack *ft_lstnew2(int content);
 void	ft_lstadd_back2(t_stack **lst, t_stack *new);
 t_stack	*ft_lstlast2(t_stack *lst);
 void check_args(int argc, char **argv);
 void check_num(char *num);
 void check_dup(int num, char **args, int i);
-//int	ft_lstsize2(t_stack *lst);
+int	ft_lstsize2(t_stack *lst);
 void sa(t_stack **stack_a);
 void ss(t_stack **stack_a, t_stack **stack_b);
 void sb(t_stack **stack_b);

@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:34 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/25 13:25:07 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/25 19:24:07 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void sa(t_stack **stack_a)
         (*stack_a)->content = ft_strdup((*stack_a)->next->content); // Copia el valor del segundo elemento al primero
         (*stack_a)->next->content = ft_itoa(temp); // Coloca el valor guardado en el segundo elemento
     }
-    print_stack(*stack_a); //comprobación
 }
 
 void pa(t_stack **stack_a, t_stack **stack_b)
