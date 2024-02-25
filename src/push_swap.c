@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/24 17:49:21 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/02/25 13:40:07 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../libft/libft.h"
+
+void which_sort(stack_t **stack_a, stack_t **stack_b)
+{
+    if (stack_a ) //si tengo 2 números que ya sé que están desordenados
+        sort2;
+    else if (stack_a) // si tengo 3 números
+        sort3;
+    else if (stack_a) //si tengo 4 números
+        sort4;
+    else if (stack_a) //si tengo 5 números
+        sort5;
+    else //para todos los demás
+        radix;
+}
 
 void fill_stack(int argc, char **argv, t_stack **stack_a)
 {
@@ -96,5 +110,5 @@ int main(int argc, char **argv)
     }
     check_sorted(&stack_a); //miro si ya está ordenado de por si
     printf("ahora a mover\n");
-    sa(&stack_a);
+    which_sort(&stack_a, &stack_b)
 }

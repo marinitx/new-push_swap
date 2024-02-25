@@ -21,6 +21,7 @@ $(NAME): $(OBJS)
 	$(C) $(FLAGS) $(SRC)
 	ar rcs $(NAME) $(OBJS)
 all: $(NAME) 
+	@$(RM) $(OBJS)
 
 bonus: $(OBJ) $(BONUS_OBJS)
 	$(C) $(FLAGS) $(SRC)
