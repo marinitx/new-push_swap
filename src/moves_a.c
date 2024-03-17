@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:34 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/25 19:24:07 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/17 12:06:53 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void sa(t_stack **stack_a)
     {
         int temp;
         
-        temp = ft_atoi((*stack_a)->content); // Guarda el valor del primer elemento en la pila A
-        (*stack_a)->content = ft_strdup((*stack_a)->next->content); // Copia el valor del segundo elemento al primero
-        (*stack_a)->next->content = ft_itoa(temp); // Coloca el valor guardado en el segundo elemento
+        temp = (*stack_a)->content; // Guarda el valor del primer elemento en la pila A
+        (*stack_a)->content = (*stack_a)->next->content; // Copia el valor del segundo elemento al primero
+        (*stack_a)->next->content = temp; // Coloca el valor guardado en el segundo elemento
     }
 }
 

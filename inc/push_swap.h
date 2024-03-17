@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:26:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/25 19:48:30 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/17 12:52:13 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 typedef struct s_stack
 {
-    char *content;
+    int content;
     struct s_stack *next;
 } t_stack;
 
@@ -44,7 +44,8 @@ void rra(t_stack **stack_a);
 void rrb(t_stack **stack_b);
 void sort2(t_stack **stack_a);
 void sort3(t_stack **stack_a);
-void sort4(t_stack **stack_a, t_stack **stack_b);
 void sort5(t_stack **stack_a, t_stack **stack_b);
+int get_min(t_stack *stack);
+int get_max(t_stack *stack);
 
 #endif

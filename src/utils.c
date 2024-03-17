@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:48:18 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/25 19:47:18 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/17 12:23:44 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void print_stack(t_stack *stack)
     printf("Contenido de la pila:\n");
     while (stack)
     {
-        printf("%s\n", stack->content);
+        printf("%d\n", stack->content);
         stack = stack->next;
     }
 }
@@ -77,3 +77,24 @@ int ft_lstsize2(t_stack *lst)
     }
     return count;
 }
+
+int get_min(t_stack *stack) {
+    int min = stack->content;
+    while (stack != NULL) {
+        if (stack->content < min)
+            min = stack->content;
+        stack = stack->next;
+    }
+    return min;
+}
+
+int get_max(t_stack *stack) {
+    int max = stack->content;
+    while (stack != NULL) {
+        if (stack->content > max)
+            max = stack->content;
+        stack = stack->next;
+    }
+    return max;
+}
+
