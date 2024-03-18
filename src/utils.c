@@ -6,19 +6,27 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:48:18 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/17 12:23:44 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:26:48 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "../inc/push_swap.h"
 
-/* void    ft_error(void)
+void	ft_free_stack(t_stack **stack)
 {
-    ft_printf("%s", "Hola");
-    exit(1);
+	t_stack	*tmp;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		(*stack)->content = 0;
+		free(*stack);
+		*stack = tmp;
+	}
 }
-*/
 
 void ft_lstadd_back2(t_stack **lst, t_stack *new) 
 {
@@ -97,4 +105,3 @@ int get_max(t_stack *stack) {
     }
     return max;
 }
-

@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:29 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/17 12:07:50 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:42:01 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void sb(t_stack **stack_b)
         (*stack_b)->content = (*stack_b)->next->content; // Copia el valor del segundo elemento al primero
         (*stack_b)->next->content = temp; // Coloca el valor guardado en el segundo elemento
     }
+    printf("sb\n");
 }
 
 void pb(t_stack **stack_a, t_stack **stack_b)
@@ -35,6 +36,7 @@ void pb(t_stack **stack_a, t_stack **stack_b)
         temp->next = *stack_b;
         *stack_b = temp;
     }
+    printf("pb\n");
 }
 
 void rb(t_stack **stack_b)
@@ -50,6 +52,7 @@ void rb(t_stack **stack_b)
         *stack_b = (*stack_b)->next; // Avanza el puntero de la pila B al segundo elemento
         last->next->next = NULL; // El anterior primer elemento ahora es el último, así que su siguiente debe ser NULL
     }
+    printf("rb\n");
 }
 
 void rrb(t_stack **stack_b)
@@ -68,4 +71,5 @@ void rrb(t_stack **stack_b)
         current->next = *stack_b; // Conecta el último elemento al primer elemento
         *stack_b = current; // Establece el último elemento como el nuevo primer elemento de la pila B
     }
+    printf("rrb\n");
 }

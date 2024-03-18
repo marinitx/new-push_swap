@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:34 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/17 12:06:53 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:44:13 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void sa(t_stack **stack_a)
         (*stack_a)->content = (*stack_a)->next->content; // Copia el valor del segundo elemento al primero
         (*stack_a)->next->content = temp; // Coloca el valor guardado en el segundo elemento
     }
+    printf("sa\n");
 }
 
 void pa(t_stack **stack_a, t_stack **stack_b)
@@ -35,6 +36,7 @@ void pa(t_stack **stack_a, t_stack **stack_b)
         temp->next = *stack_a; // Asigna el resto de la pila A como siguiente elemento del primer elemento de la pila B
         *stack_a = temp; // Establece el primer elemento de la pila B como el nuevo primer elemento de la pila A
     }
+    //printf("pa\n");
 }
 
 void ra(t_stack **stack_a)
@@ -50,6 +52,7 @@ void ra(t_stack **stack_a)
         *stack_a = (*stack_a)->next; // Avanza el puntero de la pila A al segundo elemento
         last->next->next = NULL; // El anterior primer elemento ahora es el último, así que su siguiente debe ser NULL
     }
+    printf("ra\n");
 }
 
 void rra(t_stack **stack_a)
@@ -70,4 +73,5 @@ void rra(t_stack **stack_a)
         current->next = *stack_a; // Conecta el último elemento al primer elemento
         *stack_a = current; // Establece el último elemento como el nuevo primer elemento de la pila A
     }
+    printf("rra\n");
 }

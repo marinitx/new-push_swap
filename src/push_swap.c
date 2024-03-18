@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/17 12:58:53 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/18 21:34:50 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void which_sort(t_stack **stack_a, t_stack **stack_b)
         sort3(stack_a);
     else if (ft_lstsize2(*stack_a) == 4 || ft_lstsize2(*stack_a) == 5) //si tengo 5 o 4 números
         sort5(stack_a, stack_b);
-    //else //para todos los demás
-      //  radix;
+    else //para todos los demás
+        radix(stack_a, stack_b);
       print_stack(*stack_a);
 }
 
@@ -53,34 +53,18 @@ void fill_stack(int argc, char **argv, t_stack **stack_a)
     }
 }
 //El stack está ya ordenado? el anterior es menor que el actual?
-void check_sorted(t_stack **stack_a)
+int check_sorted(t_stack **stack_a)
 {
-    int i;
-    int sorted;
-    t_stack *current;
-    current = *stack_a;
+	t_stack	*head;
 
-    i = 1;
-    sorted = 0; // 0 means sorted, 1 means not sorted
-    while (current->next != NULL)
-    {
-        printf("Contenido en current: %d\n", current->content);
-        printf("Contenido en siguiente: %d\n", current->next->content);
-        if ((current->content) > (current->next->content)) //si el número que contiene content es mayor al número que contiene el contenido del siguiente argumento
-        {
-            printf("Entro\n");
-            sorted = 1; //this list is not sorted
-            break;
-        }
-        current = current->next;
-    }
-    if (sorted == 0)
-    {
-        printf("The stack is sorted.\n");
-        exit(0);
-    }
-    else
-        printf("The stack is not sorted.\n");
+	head = *stack_a;
+	while (head->next)
+	{
+		if (head->content > head->next->content)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }
 
 int main(int argc, char **argv)
@@ -93,7 +77,6 @@ int main(int argc, char **argv)
 
     if (argc < 2)
         exit(0);
-    printf("Número de argumentos: %d\n", argc);
     check_args(argc, argv); //primero comprueba que los argumentos sean números y no estén repetidos
     stack_a = NULL;
     stack_b = NULL;
@@ -105,6 +88,6 @@ int main(int argc, char **argv)
         tmp = tmp->next;
     }
     check_sorted(&stack_a); //miro si ya está ordenado de por si
-    printf("ahora a mover\n");
     which_sort(&stack_a, &stack_b);
+    ft_free_stack(&stack_a);
 }
