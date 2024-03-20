@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/20 11:40:25 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/20 13:52:19 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void check_num(char *num)
     while (num[i] != '\0' && num[i] != ' ')
     {
         if (!ft_isdigit(num[i]))
-            exit(0);
+            ft_error();
         i++;
     }
 }
@@ -60,7 +60,7 @@ void check_args(int argc, char **argv)
     if (argc == 2)
         args = ft_split(argv[1], ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
-        exit(0);
+        ft_error();
     else // Hay más de 2 argumentos ".a" "2" "3" "1"
     {
         args = argv; //crear una matriz que combine todos los argumentos
@@ -71,7 +71,7 @@ void check_args(int argc, char **argv)
         check_num(args[i]); //si no es un número algún argumento
         tmp = ft_atoi(args[i]); // ahora todos son números char, pásamelo a ints
         if (tmp < -2147483647 || tmp > 2147483647)
-            exit(0);
+            ft_error();
         if (args[i + 1] != NULL)
             check_dup(tmp, args, i); //si algún número está duplicado.
         i++;

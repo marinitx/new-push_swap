@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/20 12:06:49 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/20 13:51:53 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 //error
 void ft_error(void)
 {
-    printf("Error\n");
+    ft_printf("Error\n");
     exit(0);
 }
 
@@ -46,7 +46,7 @@ void fill_stack(int argc, char **argv, t_stack **stack_a)
     if (argc == 2)
         args = ft_split(argv[1], ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
-        exit(0); //CAMBIAR POR "ERROR"
+        ft_error(); //CAMBIAR POR "ERROR"
     else // Hay más de 2 argumentos ".a" "2" "3" "1"
     {
         args = argv; //crear una matriz que combine todos los argumentos
