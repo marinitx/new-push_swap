@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/02/18 15:44:25 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/20 11:40:25 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include "../libft/libft.h"
 
 //Comprueba que no estén los números duplicados
 void check_dup(int num, char **args, int i)
@@ -21,11 +20,18 @@ void check_dup(int num, char **args, int i)
     {
         if (num == ft_atoi(args[i]))
         {
-            printf("error\n");
-            exit(0);
+            ft_error();
         }
         i++;    
     }
+}
+
+//Comprueba si es un dígito
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 
 //Comprueba que los argumentos sean números y no otra cosa
@@ -51,7 +57,6 @@ void check_args(int argc, char **argv)
     int tmp;
 
     i = 0;
-    printf("el argumento que le paso al split es este: %s\n", argv[1]);
     if (argc == 2)
         args = ft_split(argv[1], ' '); //los argumentos son strings de cada número divididos por el espacio
     else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
@@ -71,4 +76,19 @@ void check_args(int argc, char **argv)
             check_dup(tmp, args, i); //si algún número está duplicado.
         i++;
     }
+}
+
+//El stack está ya ordenado? el actual es mayor que el siguiente? 0 es que no está ordenado y 1 que sí está ordenado
+int check_sorted(t_stack **stack_a)
+{
+	t_stack	*head;
+
+	head = *stack_a;
+	while (head->next)
+	{
+		if (head->content > head->next->content)
+			return (0);
+		head = head->next;
+	}
+	return (1);
 }

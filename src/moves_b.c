@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:29 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/18 21:42:01 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/20 12:06:26 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ void sb(t_stack **stack_b)
 {
     if (*stack_b && (*stack_b)->next) // Verifica que haya al menos dos elementos en la pila A
     {
-        int temp;
+        int aux;
         
-        temp = (*stack_b)->content; // Guarda el valor del primer elemento en la pila A
+        aux = (*stack_b)->content; // Guarda el valor del primer elemento en la pila A
         (*stack_b)->content = (*stack_b)->next->content; // Copia el valor del segundo elemento al primero
-        (*stack_b)->next->content = temp; // Coloca el valor guardado en el segundo elemento
+        (*stack_b)->next->content = aux; // Coloca el valor guardado en el segundo elemento
     }
     printf("sb\n");
 }
@@ -29,12 +29,12 @@ void pb(t_stack **stack_a, t_stack **stack_b)
 {
     if (*stack_a)
     {
-        t_stack *temp;
+        t_stack *aux;
         
-        temp = *stack_a;
+        aux = *stack_a;
         *stack_a = (*stack_a)->next;
-        temp->next = *stack_b;
-        *stack_b = temp;
+        aux->next = *stack_b;
+        *stack_b = aux;
     }
     printf("pb\n");
 }

@@ -3,16 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:09:23 by mhiguera          #+#    #+#             */
-/*   Updated: 2023/12/09 15:01:07 by mhiguera         ###   ########.fr       */
+/*   Updated: 2023/07/04 17:04:37 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
+#include "ft_printf.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include "ft_printf.h"
 
 int	ft_format(va_list objects, char format)
 {
@@ -61,7 +60,7 @@ int	ft_printf(char const *str, ...)
 	va_end(objects);
 	return (length);
 }
-
+/*
 int main()
 {
 	int n = 593;
@@ -70,3 +69,4 @@ int main()
 	printf("\n%p", &n);
 	return(0);
 }
+*/
