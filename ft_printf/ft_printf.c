@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:09:23 by mhiguera          #+#    #+#             */
-/*   Updated: 2023/07/04 17:04:37 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:48:57 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
+
 #include <stdarg.h>
 #include <stdio.h>
+#include <unistd.h>
 
 int	ft_format(va_list objects, char format)
 {

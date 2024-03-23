@@ -3,27 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/20 13:52:19 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 10:05:35 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
 //Comprueba que no estén los números duplicados
-void check_dup(int num, char **args, int i)
+void	check_dup(int num, char **args, int i)
 {
-    i++;
-    while (args[i] != NULL)
-    {
-        if (num == ft_atoi(args[i]))
-        {
-            ft_error();
-        }
-        i++;    
-    }
+	i++;
+	while (args[i] != NULL)
+	{
+		if (num == ft_atoi(args[i]))
+			ft_error();
+		i++;
+	}
 }
 
 //Comprueba si es un dígito
@@ -35,51 +33,51 @@ int	ft_isdigit(int c)
 }
 
 //Comprueba que los argumentos sean números y no otra cosa
-void check_num(char *num)
+void	check_num(char *num)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if (num[i] == '-')
-        i++;
-    while (num[i] != '\0' && num[i] != ' ')
-    {
-        if (!ft_isdigit(num[i]))
-            ft_error();
-        i++;
-    }
+	i = 0;
+	if (num[i] == '-')
+		i++;
+	while (num[i] != '\0' && num[i] != ' ')
+	{
+		if (!ft_isdigit(num[i]))
+			ft_error();
+		i++;
+	}
 }
 
-void check_args(int argc, char **argv)
+void	check_args(int argc, char **argv)
 {
-    char **args;
-    int i;
-    int tmp;
+	char	**args;
+	int		i;
+	int		tmp;
 
-    i = 0;
-    if (argc == 2)
-        args = ft_split(argv[1], ' '); //los argumentos son strings de cada número divididos por el espacio
-    else if (argc < 2) //si me pasan 1 argumento o menos tiene que dar error
-        ft_error();
-    else // Hay más de 2 argumentos ".a" "2" "3" "1"
-    {
-        args = argv; //crear una matriz que combine todos los argumentos
-        i = 1; //que empiece en 1 para que no cuente como argumento el .a
-    }
-    while (args[i])
-    {
-        check_num(args[i]); //si no es un número algún argumento
-        tmp = ft_atoi(args[i]); // ahora todos son números char, pásamelo a ints
-        if (tmp < -2147483647 || tmp > 2147483647)
-            ft_error();
-        if (args[i + 1] != NULL)
-            check_dup(tmp, args, i); //si algún número está duplicado.
-        i++;
-    }
+	i = 0;
+	if (argc == 2)
+		args = ft_split(argv[1], ' ');
+	else if (argc < 2)
+		ft_error();
+	else
+	{
+		args = argv;
+		i = 1;
+	}
+	while (args[i])
+	{
+		check_num(args[i]);
+		tmp = ft_atoi(args[i]);
+		if (tmp < -2147483647 || tmp > 2147483647)
+			ft_error();
+		if (args[i + 1] != NULL)
+			check_dup(tmp, args, i);
+		i++;
+	}
 }
 
-//El stack está ya ordenado? el actual es mayor que el siguiente? 0 es que no está ordenado y 1 que sí está ordenado
-int check_sorted(t_stack **stack_a)
+//El stack está ordenado? el actual > que el siguiente? 0 no ordenado, 1 sí
+int	check_sorted(t_stack **stack_a)
 {
 	t_stack	*head;
 
