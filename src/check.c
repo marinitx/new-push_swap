@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:05:35 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 20:06:22 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	check_args(int argc, char **argv)
 	int		tmp;
 
 	i = 0;
-	if (argc == 2)
+	if (*argv && argc == 2)
 		args = ft_split(argv[1], ' ');
 	else if (argc < 2)
 		ft_error();

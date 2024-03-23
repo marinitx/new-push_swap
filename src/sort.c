@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:25 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:33:06 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 13:11:42 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ void	radix(t_stack **stack_a, t_stack **stack_b)
 		j = 0;
 		while (j++ < size)
 		{
+            printf("index %d\n", (*stack_a)->index);
 			if ((((*stack_a)->index >> i) & 1) == 1)
 				ra(stack_a);
 			else
@@ -81,4 +82,5 @@ void	radix(t_stack **stack_a, t_stack **stack_b)
 			pa(stack_a, stack_b);
 		i++;
 	}
+    print_stack(*stack_a);
 }

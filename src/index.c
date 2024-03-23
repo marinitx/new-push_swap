@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:11:34 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 12:28:32 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 13:01:55 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ t_stack	*get_next_min(t_stack **stack_a)
 void	add_index_to_stack(t_stack **stack_a)
 {
 	t_stack	*head;
-	int		index;
+	int		new_index;
 
-	index = 0;
+	new_index = 0;
 	head = get_next_min(stack_a);
 	while (head)
 	{
-		head->index = index++;
+		head->index = new_index++;
 		head = get_next_min(stack_a);
 	}
 }
