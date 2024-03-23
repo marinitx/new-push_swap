@@ -6,30 +6,30 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:11:34 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:05:54 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:28:32 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-t_stack	*ft_get_next_min(t_stack **stack_a)
+t_stack	*get_next_min(t_stack **stack_a)
 {
 	t_stack	*head;
 	t_stack	*min;
-	int		has_min;
+	int		found;
 
 	min = NULL;
-	has_min = 0;
+	found = 0;
 	head = *stack_a;
 	if (head)
 	{
 		while (head)
 		{
-			if ((head->index == -1) && (!has_min || head->content
+			if ((head->index == -1) && (found == 0 || head->content
 					< min->content))
 			{
 				min = head;
-				has_min = 1;
+				found = 1;
 			}
 			head = head->next;
 		}
@@ -37,16 +37,17 @@ t_stack	*ft_get_next_min(t_stack **stack_a)
 	return (min);
 }
 
-void	ft_add_index_to_stack(t_stack **stack_a)
+// para cada número añadido, mira si es más pequeño que el valor más pequeño
+void	add_index_to_stack(t_stack **stack_a)
 {
 	t_stack	*head;
 	int		index;
 
 	index = 0;
-	head = ft_get_next_min(stack_a);
+	head = get_next_min(stack_a);
 	while (head)
 	{
 		head->index = index++;
-		head = ft_get_next_min(stack_a);
+		head = get_next_min(stack_a);
 	}
 }

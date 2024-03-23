@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:27:19 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:32:51 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	fill_stack(int argc, char **argv, t_stack **stack_a)
 		ft_lstadd_back(stack_a, new);
 		i++;
 	}
-	ft_add_index_to_stack(stack_a);
+	add_index_to_stack(stack_a);
 	if (argc == 2)
 		ft_free_str(argv);
 }

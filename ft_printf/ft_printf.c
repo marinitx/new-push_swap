@@ -6,10 +6,11 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:09:23 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:48:57 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:32:19 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./ft_printf.h"
 #include <stdarg.h>
 #include <stdio.h>
 #include <unistd.h>

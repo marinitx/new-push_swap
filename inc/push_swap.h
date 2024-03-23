@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:26:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:41:20 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:29:40 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ char	**ft_split(const char *s, char c);
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
 void	ft_free_str(char **str);
-void	ft_add_index_to_stack(t_stack **stack);
-t_stack	*ft_get_next_min(t_stack **stack);
+void	add_index_to_stack(t_stack **stack);
+t_stack	*get_next_min(t_stack **stack);
 void	ft_error(void);
 
 #endif

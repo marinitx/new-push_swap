@@ -6,10 +6,11 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 17:29:38 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:48:45 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/23 12:32:33 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./ft_printf.h"
 #include <unistd.h>
 
 int	ft_printchar(char c)
