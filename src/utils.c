@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/08 17:48:18 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 20:04:46 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:39:44 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 
 void	ft_free_stack(t_stack **stack)
 {
+	t_stack	*head;
 	t_stack	*tmp;
 
-	if (!stack)
-		return ;
-	while (*stack)
+	head = *stack;
+	while (head)
 	{
-		tmp = (*stack)->next;
-		(*stack)->content = 0;
-		free(*stack);
-		*stack = tmp;
+		tmp = head;
+		head = head->next;
+		free(tmp);
 	}
+	free(stack);
 }
 
 void	print_stack(t_stack *stack)

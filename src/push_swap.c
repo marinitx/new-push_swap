@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 20:12:35 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:38:31 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ void	fill_stack(int argc, char **argv, t_stack **stack_a)
 		i++;
 	}
 	add_index_to_stack(stack_a);
-	if (argc == 2 && (ft_lstsize(*stack_a) > 1))
-		ft_free_str(argv);
+	if (argc == 2)
+		ft_free_str(args);
 }
 
 int	main(int argc, char **argv)

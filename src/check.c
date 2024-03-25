@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mhiguera <mhiguera@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 20:06:22 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/25 19:38:57 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ void	check_args(int argc, char **argv)
 {
 	char	**args;
 	int		i;
-	int		tmp;
 
 	i = 0;
 	if (*argv && argc == 2)
@@ -67,13 +66,14 @@ void	check_args(int argc, char **argv)
 	while (args[i])
 	{
 		check_num(args[i]);
-		tmp = ft_atoi(args[i]);
-		if (tmp < -2147483647 || tmp > 2147483647)
+		if (ft_atoi(args[i]) < -2147483647 || ft_atoi(args[i]) > 2147483647)
 			ft_error();
 		if (args[i + 1] != NULL)
-			check_dup(tmp, args, i);
+			check_dup(ft_atoi(args[i]), args, i);
 		i++;
 	}
+	if (argc == 2)
+		ft_free_str(args);
 }
 
 //El stack está ordenado? el actual > que el siguiente? 0 no ordenado, 1 sí
