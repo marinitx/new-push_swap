@@ -6,30 +6,11 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 11:24:53 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/23 10:08:38 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/29 18:47:55 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-
-static size_t	ft_countword(char *s, char c)
-{
-	size_t	count;
-
-	if (!*s)
-		return (0);
-	count = 0;
-	while (*s)
-	{
-		while (*s == c)
-			s++;
-		if (*s)
-			count++;
-		while (*s != c && *s)
-			s++;
-	}
-	return (count);
-}
 
 static int	count(const char *s, char c)
 {
@@ -66,6 +47,19 @@ char	*ft_strndup(const char *s, size_t n)
 	return (str);
 }
 
+void	space_control(const char *s, char c)
+{
+	unsigned int	a;
+
+	a = 0;
+	while (s[a] && s[a] == c)
+	{
+		a++;
+		if (s[a] == '\0')
+			exit(0);
+	}
+}
+
 char	**ft_split(const char *s, char c)
 {
 	unsigned int	a;
@@ -78,6 +72,7 @@ char	**ft_split(const char *s, char c)
 	table = malloc((count(s, c) + 1) * sizeof * table);
 	if (table == NULL || !s)
 		return (NULL);
+	space_control(s, c);
 	while (s[a])
 	{
 		while (s[a] == c)
