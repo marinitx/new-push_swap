@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 11:24:53 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/29 18:47:55 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/31 19:34:30 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	space_control(const char *s, char c)
 	{
 		a++;
 		if (s[a] == '\0')
-			exit(0);
+			ft_error();
 	}
 }
 

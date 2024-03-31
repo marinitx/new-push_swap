@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:26:27 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/29 18:57:07 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/31 19:15:23 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ void			add_index_to_stack(t_stack **stack);
 t_stack			*get_next_min(t_stack **stack);
 void			ft_error(void);
 long long int	ft_atol(const char *str);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
 
 #endif

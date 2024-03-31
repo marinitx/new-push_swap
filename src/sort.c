@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:25 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/25 17:58:41 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/31 19:36:11 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,24 @@ void	radix(t_stack **stack_a, t_stack **stack_b)
 			pa(stack_a, stack_b);
 		i++;
 	}
+}
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	if (n == 0)
+		return (0);
+	while (s1[i] == s2[j] && n > 1)
+	{
+		if (!s1[i] || !s2[j])
+			return (0);
+		i++;
+		j++;
+		n--;
+	}
+	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
 }

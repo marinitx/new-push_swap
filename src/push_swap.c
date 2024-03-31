@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:20 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/29 19:03:14 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/31 19:42:37 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 // función de error
 void	ft_error(void)
 {
-	ft_printf("Error\n");
+	write(2, "Error\n", 6);
 	exit(0);
 }
 

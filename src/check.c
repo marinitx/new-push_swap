@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/29 18:45:23 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/03/31 19:34:48 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ int	check_sorted(t_stack **stack_a)
 {
 	t_stack	*head;
 
+	if (!*stack_a)
+		exit(0);
 	head = *stack_a;
 	while (head->next)
 	{
