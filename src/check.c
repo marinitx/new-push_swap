@@ -6,7 +6,7 @@
 /*   By: mhiguera <mhiguera@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/04 12:25:37 by mhiguera          #+#    #+#             */
-/*   Updated: 2024/03/31 19:34:48 by mhiguera         ###   ########.fr       */
+/*   Updated: 2024/04/01 18:35:23 by mhiguera         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	check_num(char *num)
 	int	i;
 
 	i = 0;
-	if (num[i] == '-')
+	if (num[i] == '-' && ft_isdigit(num[i + 1]))
 		i++;
 	while (num[i] != '\0' && num[i] != ' ')
 	{
